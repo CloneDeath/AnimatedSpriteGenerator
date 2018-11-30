@@ -21,7 +21,8 @@ namespace AnimatedSpriteGenerator.GodotSceneGenerator {
 		}
 
 		private int GetNextId() {
-			return _resources.Select(r => r.Id).Max() + 1;
+			if (_resources.Any()) return _resources.Select(r => r.Id).Max() + 1;
+			return 1;
 		}
 
 		public int GetId(T resource) {

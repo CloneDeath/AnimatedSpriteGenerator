@@ -56,15 +56,15 @@ namespace AnimatedSpriteGenerator.GodotSceneGenerator {
 		}
 
 		private string GetAnimations(IEnumerable<SpriteFrames.Animation> animations) {
-			return $"[{string.Join(", ", animations.Select(GetAnimation))}]";
+			return $"[{string.Join(", " + Environment.NewLine, animations.Select(GetAnimation))}]";
 		}
 
 		private string GetAnimation(SpriteFrames.Animation animation) {
 			return "{"
 			       + string.Join(", " + Environment.NewLine,
 				       $"\"frames\" : {GetFrames(animation.Frames)}",
-				       $"\"loop\" : {animation.Loop}",
-				       $"\"name\" : {animation.Name}",
+				       $"\"loop\" : {(animation.Loop ? "true" : "false")}",
+				       $"\"name\" : \"{animation.Name}\"",
 				       $"\"speed\" : {animation.Speed:F1}")
 			       + "}";
 		}

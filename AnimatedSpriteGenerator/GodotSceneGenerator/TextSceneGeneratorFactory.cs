@@ -25,9 +25,9 @@ namespace AnimatedSpriteGenerator.GodotSceneGenerator {
 			switch (node) {
 				case AnimatedSprite animatedSprite: 
 					Register(animatedSprite);
-					break;
+					return;
 			}
-			throw new NotImplementedException();
+			throw new NotImplementedException(node.Name);
 		}
 
 		private void Register(AnimatedSprite animatedSprite) {

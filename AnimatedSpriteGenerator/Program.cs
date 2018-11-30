@@ -17,7 +17,7 @@ namespace AnimatedSpriteGenerator
                 Nodes = new List<INode>{GetRootNode()}
             };
             var generator = new TextSceneGenerator(scene);
-            File.WriteAllText($"{scene.Name}.escn", generator.GetSceneContents());
+            File.WriteAllText($"{scene.Name}.tscn", generator.GetSceneContents());
         }
 
         protected static INode GetRootNode() {
