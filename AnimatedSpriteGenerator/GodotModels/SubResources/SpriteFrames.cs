@@ -5,7 +5,6 @@ namespace AnimatedSpriteGenerator.GodotModels.SubResources {
 	public class SpriteFrames : ISubResource {
 		public string Type => "SpriteFrames";
 		
-		public int Id { get; set; }
 		public List<Animation> Animations { get; set; } = new List<Animation>();
 
 		public class Animation {

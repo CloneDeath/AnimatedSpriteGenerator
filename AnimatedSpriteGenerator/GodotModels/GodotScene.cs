@@ -2,7 +2,7 @@
 
 namespace AnimatedSpriteGenerator.GodotModels {
 	public class GodotScene {
-		public List<IExternalResource> ExternalResources { get; set; } = new List<IExternalResource>();
-		public List<ISubResource> SubResources { get; set; } = new List<ISubResource>();
+		public string Name { get; set; }
+		public List<INode> Nodes { get; set; } = new List<INode>();
 	}
 }
