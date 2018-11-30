@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using AnimatedSpriteGenerator.GodotModels;
 using AnimatedSpriteGenerator.GodotModels.ExternalResources;
 using AnimatedSpriteGenerator.GodotModels.Nodes;
 using AnimatedSpriteGenerator.GodotModels.SubResources;
+using AnimatedSpriteGenerator.GodotSceneGenerator;
 
 namespace AnimatedSpriteGenerator
 {
@@ -14,6 +16,8 @@ namespace AnimatedSpriteGenerator
                 Name = "Emote",
                 Nodes = new List<INode>{GetRootNode()}
             };
+            var generator = new TextSceneGenerator(scene);
+            File.WriteAllText($"{scene.Name}.escn", generator.GetSceneContents());
         }
 
         protected static INode GetRootNode() {
@@ -44,7 +48,7 @@ namespace AnimatedSpriteGenerator
                                 new Texture {
                                     Path = $"res://{type}/Style {style}/emote_{content}.png"
                                 }
-                            }
+                            },
                         });
                     }
                 }
